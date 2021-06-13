@@ -1,7 +1,7 @@
-import express from 'express'
+const express = require('express')
 const app = express()
 const port = 5000
-import { User } from './models/User'
+const { User } = require('./models/User')
 
 // application/x-www-form-urlencoded
 app.use(express.urlencoded({extended: false}));
@@ -17,7 +17,7 @@ mongoose.connect('mongodb+srv://nodetest:han0303@cluster.mlr9q.mongodb.net/myFir
 
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.send('Hello World! commmmmonnnn')
 })
 
 app.post('/register', (req, res) => {
