@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const port = 5000
 const { User } = require('./models/User')
-
+const config = require('./models/config/key')
 // application/x-www-form-urlencoded
 app.use(express.urlencoded({extended: false}));
 
@@ -10,7 +10,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 const mongoose = require('mongoose')
-mongoose.connect('mongodb+srv://nodetest:han0303@cluster.mlr9q.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+mongoose.connect(config.mongoURI, {
     useNewUrlParser : true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify : false
 }).then(() => console.log('MongoDB Connected...'))
   .catch(err => console.log(err))
