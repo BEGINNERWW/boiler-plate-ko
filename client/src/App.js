@@ -3,12 +3,12 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 
 import LandingPage from './component/views/LandingPage/LandingPage';
 import LoginPage from './component/views/LoginPage/LoginPage';
 import RegisterPage from './component/views/RegisterPage/RegisterPage';
+import Auth from './hoc/auth';
 
 
 function App() {
@@ -23,9 +23,9 @@ function App() {
         of them to render at a time
       */}
       <Switch>
-        <Route exact path="/" component ={LandingPage}></Route>
-        <Route exact path="/login"  component ={LoginPage}></Route>
-        <Route exact path="/register"  component = {RegisterPage}></Route>
+        <Route exact path="/" component ={Auth(LandingPage, null)}></Route>
+        <Route exact path="/login"  component ={Auth(LoginPage, false)}></Route>
+        <Route exact path="/register"  component = {Auth(RegisterPage, false)}></Route>
       </Switch>
     </div>
   </Router>
